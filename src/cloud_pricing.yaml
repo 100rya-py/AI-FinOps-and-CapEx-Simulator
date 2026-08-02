@@ -4,7 +4,7 @@ meta:
 providers:
   aws:
     nvidia_a100:
-      on_demand_rate: 999.99
+      on_demand_rate: 2.71
       spot_rate_baseline: 2.7447
     nvidia_h100:
       on_demand_rate: 3.76
