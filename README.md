@@ -13,10 +13,8 @@
 
 ### 📸 Dashboard Preview
 
-*(Replace the placeholder image below with a screenshot of your deployed Shiny web application)*
-
-![Market Sizing]([https://github.com/100rya-py/AI-FinOps-and-CapEx-Simulator/blob/main/Screenshots/Market%20Sizing.png])
-![ROI Risk Simulation]([https://github.com/100rya-py/AI-FinOps-and-CapEx-Simulator/blob/main/Screenshots/ROI%20Risk%20Simulation.png])
+![Market Sizing](https://github.com/100rya-py/AI-FinOps-and-CapEx-Simulator/blob/main/Screenshots/Market%20Sizing.png)
+![ROI Risk Simulation](https://github.com/100rya-py/AI-FinOps-and-CapEx-Simulator/blob/main/Screenshots/ROI%20Risk%20Simulation.png)
 
 ---
 
@@ -36,11 +34,13 @@ The core mathematical engine models the volatility of cloud compute pricing (spe
 
 ## 📊 Data Sources & Integration
 
-*(Add specific details about your underlying market data, APIs, or assumptions here)*
+## 📊 Data Sources & Integration
 
-*   **Primary Data Source:** `[Insert Data Source / API Documentation Here]`
-*   **Internal Configuration:** Spot rate baselines and on-demand rates are tracked via `src/cloud_pricing.yaml`.
-*   **Automated Updates:** The daily ETL script (`update_pricing_pipeline`) dynamically adjusts unit prices and variable costs.
+The simulator relies on a hybrid data architecture, combining live market feeds with stochastic modeling to ensure zero downtime:
+
+*   **Primary Real-Time Data (ETL API):** Integrates with the `ComputePrices API` to fetch live On-Demand and Spot pricing for enterprise AI GPUs (e.g., NVIDIA A100, H100) across major cloud providers like AWS and DeepInfra.
+*   **Stochastic Fallback Model:** In the event of API rate-limiting or endpoint failure, the data pipeline seamlessly shifts to a mathematical **Gaussian (Normal) Distribution** (Mean discount = ~70%, Standard Deviation = 5%). This statistically simulates realistic spot market volatility without breaking the simulation engine.
+*   **Local State Management:** `src/cloud_pricing.yaml` acts as a local cache and baseline configuration state. It is dynamically updated by the ETL pipeline to track price drift and baseline on-demand rates.
 
 ## 🚀 Installation & Local Deployment
 
