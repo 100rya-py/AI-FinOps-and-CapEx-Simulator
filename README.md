@@ -7,7 +7,7 @@
 
 > A stochastic risk assessment and CapEx optimization engine for AI Cloud workloads, modeling on-demand versus spot pricing dynamics.
 
-**[🌐 Live Web App](https://shaurya-portfolio.shinyapps.io/ai-finops-simulator/)** | **[Insert Alternative Web App Link Here]**
+**[🌐 Live Web App](https://shaurya-portfolio.shinyapps.io/ai-finops-simulator/)
 
 ---
 
