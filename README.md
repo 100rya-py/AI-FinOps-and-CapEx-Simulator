@@ -60,13 +60,6 @@ Instead of static assumptions, the engine applies rigorous probability modeling:
 *   **Frontend & Visualization:** `shiny`, `shinywidgets`, `plotly`
 *   **Infrastructure:** Local `yaml` caching, Shinyapps.io
   
-## 📊 Data Sources & Integration
-
-The simulator relies on a hybrid data architecture, combining live market feeds with stochastic modeling to ensure zero downtime:
-
-*   **Primary Real-Time Data (ETL API):** Integrates with the `ComputePrices API` to fetch live On-Demand and Spot pricing for enterprise AI GPUs (e.g., NVIDIA A100, H100) across major cloud providers like AWS and DeepInfra.
-*   **Stochastic Fallback Model:** In the event of API rate-limiting or endpoint failure, the data pipeline seamlessly shifts to a mathematical **Gaussian (Normal) Distribution** (Mean discount = ~70%, Standard Deviation = 5%). This statistically simulates realistic spot market volatility without breaking the simulation engine.
-*   **Local State Management:** `src/cloud_pricing.yaml` acts as a local cache and baseline configuration state. It is dynamically updated by the ETL pipeline to track price drift and baseline on-demand rates.
 
 ## 🚀 Installation & Local Deployment
 
