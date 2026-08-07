@@ -94,7 +94,7 @@ shiny run app.py --reload
 ## 🏗️ Project Structure
 
 ```text
-├── .github/                   
+├── .github/workflows/update_data.yaml               
 ├── src/                       
 │   ├── business_logic.py      
 │   ├── cloud_pricing.yaml      
