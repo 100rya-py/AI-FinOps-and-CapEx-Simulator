@@ -24,14 +24,41 @@ This simulator provides a rigorous quantitative framework for assessing AI infra
 
 The core mathematical engine models the volatility of cloud compute pricing (specifically GPUs like NVIDIA H100 and A100) across major providers, transitioning smoothly between real-time API integrations and statistical fallbacks.
 
-## 🛠️ Key Architectural Features
+## ⚙️ Core Features & The Complete Pipeline
 
-*   **Real-Time Cloud Pricing ETL Pipeline:** Actively fetches live spot and on-demand GPU rates across providers (AWS, DeepInfra) to maintain accurate market benchmarks.
-*   **Statistical Fallback Engine:** In the event of API rate limits or failure, the pipeline seamlessly shifts to a Gaussian (Normal) distribution model to simulate stochastic market volatility and spot discounts mathematically.
-*   **Vectorized Monte Carlo Simulations:** Executes 10,000 iterations of market share and pricing variance using NumPy. Extracts the 10th (Worst Case), 50th (Expected), and 90th (Best Case) percentiles for Net Profit and ROI without freezing the client UI.
-*   **Deterministic Business Modeling:** Calculates baseline Unit Economics, Total Costs (Fixed + Variable), Projected Revenue, and Gross/Net Savings.
-*   **Interactive PyShiny Interface:** A fully reactive frontend built with Shiny for Python and Plotly, delivering high-fidelity waterfall charts and risk distribution visualizations.
+**1. Live Data Ingestion & API Integration (Extract)**
 
+*   **Real-Time Price Fetching:** Integrates with the ComputePrices API to extract live on-demand and spot GPU rates for enterprise AI workloads (NVIDIA A100, H100) across AWS and DeepInfra[cite: 3].
+*   **Local State Cache:** Dynamically updates a `cloud_pricing.yaml` configuration file to act as a local ledger for baseline rate tracking and failover redundancy[cite: 3].
+
+**2. Statistical Fallback Architecture (Transform & Clean)**
+
+*   **Stochastic Volatility Simulation:** In the event of API rate limits, the engine mathematically simulates spot market fluctuations using a Gaussian (Normal) Distribution (Mean discount = ~70%, Standard Deviation = 5%)[cite: 3].
+*   **Seamless Failover:** Ensures zero downtime in the pipeline by automatically generating statistically valid synthetic pricing when live endpoints are unreachable[cite: 3].
+
+**3. Deterministic Business Modeling (Unit Economics)**
+
+*   **CapEx vs OpEx Metrics:** Calculates baseline Total Addressable Market (TAM), projected revenue, total operational costs, and base ROI using fixed user inputs[cite: 4].
+*   **Net Margin Calculation:** Accurately models the gross and net savings of utilizing FinOps agent software versus traditional on-demand provisioning[cite: 1, 4].
+
+**4. Applied Mathematics: Monte Carlo Risk Engine**
+
+Instead of static assumptions, the engine applies rigorous probability modeling:
+*   **Vectorized Iterations:** Executes 10,000 parallel simulation cycles using `numpy` to model simultaneous market share and pricing variance without freezing the client UI[cite: 4].
+*   **Percentile Extraction:** Calculates continuous probability thresholds, outputting the 10th (Worst-Case), 50th (Expected), and 90th (Best-Case) percentiles for Net Profit and ROI[cite: 4].
+
+**5. Interactive Frontend Application (Serving)**
+
+*   **Reactive PyShiny Layout:** Compiles backend math into a highly responsive, styled web interface featuring dual-tab navigation for Deterministic and Risk Simulation views[cite: 7].
+*   **High-Fidelity Visuals:** Leverages `plotly` to render interactive Waterfall charts for unit economics and distribution Bar charts for Monte Carlo risk scenarios[cite: 7].
+
+## 💻 Tech Stack
+
+*   **Languages:** Python 3.10+, YAML[cite: 8]
+*   **Data Collection & Architecture:** `requests`, `python-dotenv`[cite: 8]
+*   **Analytics & Mathematics:** `numpy`, `pandas`[cite: 8]
+*   **Frontend & Visualization:** `shiny`, `shinywidgets`, `plotly`[cite: 8]
+*   **Infrastructure:** Local `yaml` caching, Shinyapps.io[cite: 5, 8]
 ## 📊 Data Sources & Integration
 
 The simulator relies on a hybrid data architecture, combining live market feeds with stochastic modeling to ensure zero downtime:
