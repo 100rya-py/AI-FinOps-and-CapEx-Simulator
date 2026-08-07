@@ -7,7 +7,7 @@
 
 > A stochastic risk assessment and CapEx optimization engine for AI Cloud workloads, modeling on-demand versus spot pricing dynamics.
 
-**[🌐 Live Web App](https://shaurya-portfolio.shinyapps.io/ai-finops-simulator/)
+[🌐 Live Web App](https://shaurya-portfolio.shinyapps.io/ai-finops-simulator/)
 
 ---
 
@@ -31,8 +31,6 @@ The core mathematical engine models the volatility of cloud compute pricing (spe
 *   **Vectorized Monte Carlo Simulations:** Executes 10,000 iterations of market share and pricing variance using NumPy. Extracts the 10th (Worst Case), 50th (Expected), and 90th (Best Case) percentiles for Net Profit and ROI without freezing the client UI.
 *   **Deterministic Business Modeling:** Calculates baseline Unit Economics, Total Costs (Fixed + Variable), Projected Revenue, and Gross/Net Savings.
 *   **Interactive PyShiny Interface:** A fully reactive frontend built with Shiny for Python and Plotly, delivering high-fidelity waterfall charts and risk distribution visualizations.
-
-## 📊 Data Sources & Integration
 
 ## 📊 Data Sources & Integration
 
