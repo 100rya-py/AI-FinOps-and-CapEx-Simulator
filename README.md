@@ -15,7 +15,8 @@
 
 *(Replace the placeholder image below with a screenshot of your deployed Shiny web application)*
 
-![Web App Preview]([Insert_Link_To_Web_App_Photo_Here])
+![Market Sizing]([https://github.com/100rya-py/AI-FinOps-and-CapEx-Simulator/blob/main/Screenshots/Market%20Sizing.png])
+![ROI Risk Simulation]([https://github.com/100rya-py/AI-FinOps-and-CapEx-Simulator/blob/main/Screenshots/ROI%20Risk%20Simulation.png])
 
 ---
 
