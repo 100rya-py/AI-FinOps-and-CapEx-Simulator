@@ -1,18 +1,18 @@
 meta:
   currency: USD
-  last_updated: '2026-08-12'
+  last_updated: '2026-08-13'
 providers:
   aws:
     nvidia_a100:
       on_demand_rate: 2.71
-      spot_rate_baseline: 0.86
+      spot_rate_baseline: 0.9
     nvidia_h100:
       on_demand_rate: 3.76
-      spot_rate_baseline: 1.21
+      spot_rate_baseline: 1.36
   deepinfra:
     nvidia_a100:
       on_demand_rate: 3.5
-      spot_rate_baseline: 0.74
+      spot_rate_baseline: 1.02
     nvidia_h100:
       on_demand_rate: 7.0
-      spot_rate_baseline: 1.94
+      spot_rate_baseline: 2.42
